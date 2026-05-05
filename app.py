@@ -124,4 +124,3 @@ with tab2:
 
 st.sidebar.markdown("---")
 st.sidebar.write("Proyek JST Kelompok 4")
-st.sidebar.caption("Andini Marsha Daniswara | Mifta | Lala")
