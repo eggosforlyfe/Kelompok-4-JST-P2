@@ -83,7 +83,7 @@ with tab1:
         prediction = model.predict(input_scaled)
         label = le.inverse_transform(prediction)[0]
         
-        # Tampilan Hasil yang Keren
+        # Tampilan Hasil
         st.subheader("Hasil Analisis:")
         if label == "Good":
             st.balloons()
@@ -98,15 +98,15 @@ with tab1:
 with tab2:
     st.subheader("Statistik Performa Neural Network (MLP)")
     
-    # --- BAGIAN STATISTIK DATASET ---
+    # Statistik Dataset
     st.markdown("#### 📈 Statistik Dataset")
     s_col1, s_col2, s_col3 = st.columns(3)
     with s_col1:
-        st.metric("Total Data", "94.834")[cite: 1]
+        st.metric("Total Data", "94.834")
     with s_col2:
-        st.metric("Stasiun Terpilih", "3")[cite: 1]
+        st.metric("Stasiun Terpilih", "3")
     with s_col3:
-        st.metric("Fitur Input", "11")[cite: 1]
+        st.metric("Fitur Input", "11")
     
     st.markdown("---")
     
@@ -120,25 +120,24 @@ with tab2:
         else:
             st.info("Upload 'confusion_matrix.png' ke GitHub untuk melihat visualisasi.")
         
-        # --- BAGIAN DISTRIBUSI AQI ---
+        # Distribusi AQI
         st.markdown("**Distribusi AQI (Label Target)**")
         dist_data = pd.DataFrame({
             'Kategori': ['Unhealthy', 'Moderate', 'Hazardous', 'Good'],
-            'Jumlah': [44568, 21925, 14255, 14086][cite: 1]
+            'Jumlah': [44568, 21925, 14255, 14086]
         })
         st.bar_chart(dist_data.set_index('Kategori'))
 
     with col_b:
         st.markdown("**Classification Report**")
-        # Menampilkan data precision, recall, f1-score dari output cell 47 Kaggle
         report_data = {
             "Label": ["Good (0)", "Hazardous (1)", "Moderate (2)", "Unhealthy (3)"],
-            "Precision": [0.73, 0.86, 0.76, 0.88],[cite: 1]
-            "Recall": [0.80, 0.89, 0.64, 0.91],[cite: 1]
-            "F1-Score": [0.76, 0.88, 0.70, 0.89][cite: 1]
+            "Precision": [0.73, 0.86, 0.76, 0.88],
+            "Recall": [0.80, 0.89, 0.64, 0.91],
+            "F1-Score": [0.76, 0.88, 0.70, 0.89]
         }
         st.table(pd.DataFrame(report_data))
-        st.write("**Accuracy Keseluruhan: 0.83**")[cite: 1]
+        st.write("**Accuracy Keseluruhan: 0.83**")
         
         st.markdown("**Detail Model**")
         st.json({
@@ -148,10 +147,6 @@ with tab2:
             "Optimization": "Adam",
             "Max Iterations": 1000
         })
-        st.markdown("""
-            *   **Hasil Analisis**: Model memiliki performa sangat tinggi pada kelas *Unhealthy* (F1 0.89) dan *Hazardous* (F1 0.88).
-            *   **Insight**: Nilai recall kelas *Moderate* (0.64) menunjukkan adanya irisan data yang tipis dengan kategori sekitarnya.
-        """)
 
 st.sidebar.markdown("---")
 st.sidebar.write("Proyek JST Kelompok 4")
