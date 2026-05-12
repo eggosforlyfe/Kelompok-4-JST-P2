@@ -89,16 +89,12 @@ if page == "Prediksi Real-time":
         """, unsafe_allow_html=True)
 
         with st.expander("🔍 Bagaimana hasil ini didapatkan?"):
-            st.write(f"Berdasarkan pembobotan JST, input ini memiliki kecocokan **{prob[prediction]*100:.2f}%** dengan kategori **{res['label']}**.")
-
+            st.write(f"Model JST menganalisis **11 fitur** yang kamu masukkan. Berdasarkan pembobotan (weight) yang dipelajari di Kaggle, input kamu memiliki kecocokan **{prob[prediction]*100:.2f}%** dengan pola data historis kategori **{res['label']}**.")
+            st.write("Indikator dominan dalam prediksi ini biasanya dipengaruhi oleh kadar polutan gas (CO/PM10) dan kecepatan angin (WSPM).")
+            
 # --- HALAMAN 2: PERFORMA MODEL JST ---
 else:
     st.title("📈 Performa Model JST")
-    
-    col1, col2, col3 = st.columns(3)
-    col1.metric("Akurasi Final", "92.45%") # Update manual sesuai hasil Kaggle-mu
-    col2.metric("Hidden Layers", "3 Layer")
-    col3.metric("Neuron", "512, 512, 256")
 
     st.divider()
 
