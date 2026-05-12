@@ -110,7 +110,7 @@ else:
             st.warning("Foto 'confusion_matrix.png' tidak ditemukan.")
 
     with tab2:
-        st.write("Menunjukkan perbandingan jumlah data untuk setiap kategori kualitas udara (EDA).")
+        st.write("Menunjukkan perbandingan jumlah data untuk setiap kategori kualitas udara (AQI).")
         try:
             st.image("distribusi_aqi.png", use_container_width=True)
         except:
