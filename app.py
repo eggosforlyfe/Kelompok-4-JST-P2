@@ -33,7 +33,6 @@ except:
 
 # --- SIDEBAR NAVIGASI ---
 with st.sidebar:
-    st.image("https://www.gstatic.com/devrel-devsite/prod/v2400b84c8d5047b8538b8120092d6e3f2824c65a04a39f603c4f74d9e03d3c8c/tensorflow/images/lockup.png", width=200)
     st.title("Navigasi")
     page = st.radio("Pilih Menu:", ["Prediksi Real-time", "Performa Model JST"])
     st.divider()
